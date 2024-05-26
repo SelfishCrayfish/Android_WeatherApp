@@ -75,7 +75,7 @@ public class FragmentForecast extends Fragment {
             String hour = date.substring(date.length() - 8);
             if(hour.equals("06:00:00")){
                 String pureDate = date.replaceAll("06:00:00", "");
-                dateArray[daytimeIterator].setText(pureDate);
+                dateArray[daytimeIterator].setText(pureDate.substring(5));
                 daytimeArray[daytimeIterator].setText("6:00");
 
                 double temperature = dayForecast.getJSONObject("main").getDouble("temp");

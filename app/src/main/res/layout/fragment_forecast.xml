@@ -4,414 +4,388 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/dateDay1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Day 1 date"
-        android:textSize="@dimen/forecast_big_text_size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline15" />
-
-    <TextView
-        android:id="@+id/daytime1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Day"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-    <TextView
-        android:id="@+id/tempDaytime1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 1 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <TextView
-        android:id="@+id/descriptionDaytime1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 1 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
-    <TextView
-        android:id="@+id/nighttime1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Night"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-    <TextView
-        android:id="@+id/tempNighttime1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 1 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <TextView
-        android:id="@+id/descriptionNighttime1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 1 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
-    <TextView
-        android:id="@+id/dateDay2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Day 2 date"
-        android:textSize="@dimen/forecast_big_text_size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <TextView
-        android:id="@+id/daytime2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Day"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
-    <TextView
-        android:id="@+id/tempDaytime2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 2 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-    <TextView
-        android:id="@+id/descriptionDaytime2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 2 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline17" />
-
-    <TextView
-        android:id="@+id/nighttime2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Night"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
-    <TextView
-        android:id="@+id/tempNighttime2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 2 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-    <TextView
-        android:id="@+id/descriptionNighttime2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 2 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline17" />
-
-    <TextView
-        android:id="@+id/dateDay3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Day 3 date"
-        android:textSize="@dimen/forecast_big_text_size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
-    <TextView
-        android:id="@+id/daytime3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Day"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
-    <TextView
-        android:id="@+id/tempDaytime3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 3 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-    <TextView
-        android:id="@+id/descriptionDaytime3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 3 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline17" />
-
-    <TextView
-        android:id="@+id/nighttime3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Night"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
-
-    <TextView
-        android:id="@+id/tempNighttime3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 3 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-
-    <TextView
-        android:id="@+id/descriptionNighttime3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 3 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline17" />
-
-    <TextView
-        android:id="@+id/dateDay4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Day 4 date"
-        android:textSize="@dimen/forecast_big_text_size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-    <TextView
-        android:id="@+id/daytime4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Day"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
-
-    <TextView
-        android:id="@+id/tempDaytime4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 4 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
-
-    <TextView
-        android:id="@+id/descriptionDaytime4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 4 des"
-        android:textSize="@dimen/forecast_mid_text_size"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/translucent_background"
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
-
-    <TextView
-        android:id="@+id/nighttime4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Night"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
-
-    <TextView
-        android:id="@+id/tempNighttime4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 4 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
-
-    <TextView
-        android:id="@+id/descriptionNighttime4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 4 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
-
-    <TextView
-        android:id="@+id/dateDay5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Day 5 date"
-        android:textSize="@dimen/forecast_big_text_size"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-    <TextView
-        android:id="@+id/daytime5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Day"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
-
-    <TextView
-        android:id="@+id/tempDaytime5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 5 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
-
-    <TextView
-        android:id="@+id/descriptionDaytime5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Day 5 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
-
-    <TextView
-        android:id="@+id/nighttime5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/g7_segment"
-        android:text="Night"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
+        app:layout_constraintTop_toTopOf="@+id/guideline15">
 
-    <TextView
-        android:id="@+id/tempNighttime5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 5 temp"
-        android:textSize="@dimen/forecast_mid_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
+        <TextView
+            android:id="@+id/dateDay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-thin"
+            android:text="Day 1 date"
+            android:textSize="@dimen/forecast_big_text_size"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/descriptionNighttime5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Night 5 desc"
-        android:textSize="@dimen/forecast_mid_text_size"
+        <TextView
+            android:id="@+id/daytime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFF00"
+            android:text="Day"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempDaytime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 1 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionDaytime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 1 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/nighttime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0088FF"
+            android:text="Night"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempNighttime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 1 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionNighttime1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 1 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/translucent_background"
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline22"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline15"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/dateDay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-thin"
+            android:text="Day 2 date"
+            android:textSize="@dimen/forecast_big_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daytime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFF00"
+            android:text="Day"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempDaytime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 2 temp"
+            android:textSize="@dimen/forecast_mid_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/guideline17"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+        <TextView
+            android:id="@+id/descriptionDaytime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 2 desc"
+            android:textSize="@dimen/forecast_mid_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+
+        <TextView
+            android:id="@+id/nighttime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0088FF"
+            android:text="Night"
+            android:textSize="@dimen/forecast_mid_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+        <TextView
+            android:id="@+id/tempNighttime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 2 temp"
+            android:textSize="@dimen/forecast_mid_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/guideline17"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_bias="0.56"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+        <TextView
+            android:id="@+id/descriptionNighttime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 2 desc"
+            android:textSize="@dimen/forecast_mid_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/translucent_background"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
+        app:layout_constraintTop_toTopOf="@+id/guideline18">
+
+        <TextView
+            android:id="@+id/dateDay3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-thin"
+            android:text="Day 3 date"
+            android:textSize="@dimen/forecast_big_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daytime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFF00"
+            android:text="Day"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempDaytime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 3 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionDaytime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 3 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/nighttime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0088FF"
+            android:text="Night"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+
+        <TextView
+            android:id="@+id/tempNighttime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 3 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+
+        <TextView
+            android:id="@+id/descriptionNighttime3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 3 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/translucent_background"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline18"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/dateDay4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-thin"
+            android:text="Day 4 date"
+            android:textSize="@dimen/forecast_big_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daytime4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFF00"
+            android:text="Day"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempDaytime4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 4 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionDaytime4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 4 des"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/nighttime4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0088FF"
+            android:text="Night"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempNighttime4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 4 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionNighttime4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 4 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/translucent_background"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline22"
+        app:layout_constraintStart_toStartOf="@+id/guideline24"
+        app:layout_constraintTop_toTopOf="@+id/guideline18">
+
+        <TextView
+            android:id="@+id/dateDay5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="#FFFFFF"
+            android:text="Day 5 date"
+            android:textSize="@dimen/forecast_big_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daytime5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFF00"
+            android:text="Day"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempDaytime5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 5 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionDaytime5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Day 5 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/nighttime5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0088FF"
+            android:text="Night"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/tempNighttime5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 5 temp"
+            android:textSize="@dimen/forecast_mid_text_size" />
+
+        <TextView
+            android:id="@+id/descriptionNighttime5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Night 5 desc"
+            android:textSize="@dimen/forecast_mid_text_size" />
+    </LinearLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -428,27 +402,6 @@
         app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -457,41 +410,12 @@
 
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.34" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"
@@ -500,52 +424,76 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.05" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15321477" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.01" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.49" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.51" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.99" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45827633" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55266756" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.5" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
