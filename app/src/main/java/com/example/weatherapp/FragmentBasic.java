@@ -42,7 +42,12 @@ public class FragmentBasic extends Fragment {
         cityNameTextView.setText(weather.getString("name"));
         Log.d("WeatherLatest", weather.toString());
         double temperature = weather.getJSONObject("main").getDouble("temp");
-        temperatureTextView.setText(String.format("Temperature: %s°%c", temperature, isMetric ? 'C' : 'F'));
+        char thingy = isMetric ? 'C' : 'F';
+        if(!isMetric){
+            temperature = ((temperature*9)/5)+32;
+        }
+
+        temperatureTextView.setText(String.format("Temperature: %.2f°%c", temperature, thingy));
 
         int pressure = weather.getJSONObject("main").getInt("pressure");
         pressureTextView.setText(String.format("Pressure: %s hPa", pressure));
@@ -51,7 +56,11 @@ public class FragmentBasic extends Fragment {
         descriptionTextView.setText(description);
 
         double windSpeed = weather.getJSONObject("wind").getDouble("speed");
-        windSpeedTextView.setText(String.format("Wind Speed: %s %s", windSpeed, isMetric ? "m/s" : "mph"));
+        String thingyButWindy = isMetric ? "km/h" : "mph";
+        if(!isMetric){
+            windSpeed = 0.6214 * windSpeed;
+        }
+        windSpeedTextView.setText(String.format("Wind Speed: %.2f %s", windSpeed, thingyButWindy));
 
         int windDirection = weather.getJSONObject("wind").getInt("deg");
         windDirectionTextView.setText(String.format("Wind Direction: %s°", windDirection));

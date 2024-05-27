@@ -19,10 +19,9 @@ public class WeatherFetcher {
             @Override
             protected JSONObject doInBackground(Void... voids) {
                 try {
-                    String units = isMetric ? "metric" : "imperial";
                     String apiKey = "df4d8ceb5e6f3304d37b838b0d1d024e";
-                    String forecastUrlString = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey + "&units=" + units;
-                    String latestUrlString = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey + "&units=" + units;
+                    String forecastUrlString = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey + "&units=metric";
+                    String latestUrlString = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey + "&units=metric";
                     URL forecastUrl = new URL(forecastUrlString);
                     URL latestUrl = new URL(latestUrlString);
                     HttpURLConnection forecastUrlConnection = (HttpURLConnection) forecastUrl.openConnection();

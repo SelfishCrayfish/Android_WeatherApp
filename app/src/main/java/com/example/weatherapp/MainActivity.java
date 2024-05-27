@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isMetric = true;
     private Handler handler = new Handler();
     private Runnable runnable;
-//    private static final long REFRESH_INTERVAL = 5 * 60 * 1000;
-    private static final long REFRESH_INTERVAL = 1 * 10 * 1000;
+    private static final long REFRESH_INTERVAL = 5 * 60 * 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,8 +184,6 @@ public class MainActivity extends AppCompatActivity {
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
             if (fragment instanceof FragmentBasic) {
                 ((FragmentBasic) fragment).updateBasicData(latestWeatherData, isMetric);
-            } else if (fragment instanceof FragmentAdditional) {
-                ((FragmentAdditional) fragment).updateAdditionalData(latestWeatherData, isMetric);
             } else if (fragment instanceof FragmentForecast) {
                 ((FragmentForecast) fragment).updateForecastData(forecastWeatherArray, isMetric);
             }
@@ -231,5 +228,18 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         handler.removeCallbacks(runnable);
         Log.d("onDestroy", "I have been called");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putBoolean("isMetric", isMetric);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        isMetric = savedInstanceState.getBoolean("isMetric");
+
     }
 }

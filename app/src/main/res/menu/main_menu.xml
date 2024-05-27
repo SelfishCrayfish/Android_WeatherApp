@@ -2,17 +2,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_refresh"
-        android:title="Odśwież"
+        android:title="Refresh"
         android:icon="@android:drawable/ic_menu_rotate"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_change_location"
-        android:title="Zmień lokalizację"
+        android:title="Change location"
         android:icon="@android:drawable/ic_menu_mapmode"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_change_units"
-        android:title="Zmień jednostki"
+        android:title="Convert units"
         android:icon="@android:drawable/ic_menu_preferences"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_add_city"
+        android:title="Add city"
+        android:icon="@android:drawable/star_on"
+        app:showAsAction="never" />
 </menu>

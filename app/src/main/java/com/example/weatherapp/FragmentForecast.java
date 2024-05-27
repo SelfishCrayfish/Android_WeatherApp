@@ -90,7 +90,11 @@ public class FragmentForecast extends Fragment {
                 daytimeArray[daytimeIterator].setText("6:00");
 
                 double temperature = dayForecast.getJSONObject("main").getDouble("temp");
-                tempDaytimeArray[daytimeIterator].setText(String.format("%s°%c", temperature, isMetric ? 'C' : 'F'));
+                char thingy = isMetric ? 'C' : 'F';
+                if(!isMetric){
+                    temperature = ((temperature*9)/5)+32;
+                }
+                tempDaytimeArray[daytimeIterator].setText(String.format("%.2f°%c", temperature, thingy));
 
                 String imageString = dayForecast.getJSONArray("weather").getJSONObject(0).getString("icon");
                 String imageUrl = "https://openweathermap.org/img/wn/" + imageString + "@2x.png";
@@ -103,7 +107,11 @@ public class FragmentForecast extends Fragment {
                 nighttimeArray[nighttimeIterator].setText("18:00");
 
                 double temperature = dayForecast.getJSONObject("main").getDouble("temp");
-                tempNighttimeArray[nighttimeIterator].setText(String.valueOf(temperature));
+                char thingy = isMetric ? 'C' : 'F';
+                if(!isMetric){
+                    temperature = ((temperature*9)/5)+32;
+                }
+                tempNighttimeArray[nighttimeIterator].setText(String.format(String.format("%.2f°%c", temperature, thingy)));
 
                 String imageString = dayForecast.getJSONArray("weather").getJSONObject(0).getString("icon");
                 String imageUrl = "https://openweathermap.org/img/wn/" + imageString + "@2x.png";
