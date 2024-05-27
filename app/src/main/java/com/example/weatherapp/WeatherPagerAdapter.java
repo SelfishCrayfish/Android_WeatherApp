@@ -6,8 +6,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class WeatherPagerAdapter extends FragmentStateAdapter {
+    private Fragment basic;
+    private Fragment forecast;
+    private Fragment additional;
     public WeatherPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
+        basic = new FragmentBasic();
+        forecast = new FragmentForecast();
+        additional = new FragmentAdditional();
     }
 
     @NonNull
@@ -15,11 +21,11 @@ public class WeatherPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 1:
-                return new FragmentAdditional();
+                return additional;
             case 2:
-                return new FragmentForecast();
+                return forecast;
             default:
-                return new FragmentBasic();
+                return basic;
         }
     }
 

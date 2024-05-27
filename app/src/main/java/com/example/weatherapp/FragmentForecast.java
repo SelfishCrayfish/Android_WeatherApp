@@ -1,5 +1,10 @@
 package com.example.weatherapp;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,13 +15,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Date;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class FragmentForecast extends Fragment {
     private TextView[] dateArray;
@@ -24,8 +35,8 @@ public class FragmentForecast extends Fragment {
     private TextView[] nighttimeArray;
     private TextView[] tempDaytimeArray;
     private TextView[] tempNighttimeArray;
-    private TextView[] descDaytimeArray;
-    private TextView[] descNighttimeArray;
+    private ImageView[] imgDaytimeArray;
+    private ImageView[] imgNighttimeArray;
 
     @Nullable
     @Override
@@ -36,8 +47,8 @@ public class FragmentForecast extends Fragment {
         nighttimeArray = new TextView[5];
         tempDaytimeArray = new TextView[5];
         tempNighttimeArray = new TextView[5];
-        descDaytimeArray = new TextView[5];
-        descNighttimeArray = new TextView[5];
+        imgDaytimeArray = new ImageView[5];
+        imgNighttimeArray = new ImageView[5];
         for (int i = 0; i < 5; i++){
             String date = "dateDay" + (i + 1);
             String daytime = "daytime" + (i + 1);
@@ -58,14 +69,14 @@ public class FragmentForecast extends Fragment {
             nighttimeArray[i] = view.findViewById(nighttimeID);
             tempDaytimeArray[i] = view.findViewById(tempDayID);
             tempNighttimeArray[i] = view.findViewById(tempNightID);
-            descDaytimeArray[i] = view.findViewById(descDayID);
-            descNighttimeArray[i] = view.findViewById(descNightID);
+            imgDaytimeArray[i] = view.findViewById(descDayID);
+            imgNighttimeArray[i] = view.findViewById(descNightID);
         }
         Log.d("FragmentForecast", "I am fine haha");
         return view;
     }
 
-    public void updateForecastData(JSONArray weather, boolean isMetric) throws JSONException {
+    public void updateForecastData(JSONArray weather, boolean isMetric) throws JSONException, IOException {
         int daytimeIterator = 0;
         int nighttimeIterator = 0;
 
@@ -79,16 +90,26 @@ public class FragmentForecast extends Fragment {
                 daytimeArray[daytimeIterator].setText("6:00");
 
                 double temperature = dayForecast.getJSONObject("main").getDouble("temp");
-                tempDaytimeArray[daytimeIterator].setText(String.valueOf(temperature));
+                tempDaytimeArray[daytimeIterator].setText(String.format("%s°%c", temperature, isMetric ? 'C' : 'F'));
 
-                String description = dayForecast.getJSONArray("weather").getJSONObject(0).getString("main");
-                descDaytimeArray[daytimeIterator].setText(description);
+                String imageString = dayForecast.getJSONArray("weather").getJSONObject(0).getString("icon");
+                String imageUrl = "https://openweathermap.org/img/wn/" + imageString + "@2x.png";
+
+                Picasso.get().load(imageUrl).into(imgDaytimeArray[daytimeIterator]);
+
                 daytimeIterator++;
             }
             if(hour.equals("18:00:00")){
                 nighttimeArray[nighttimeIterator].setText("18:00");
-                tempNighttimeArray[nighttimeIterator].setText(dayForecast.getJSONObject("main").getString("temp"));
-                descNighttimeArray[nighttimeIterator].setText(dayForecast.getJSONArray("weather").getJSONObject(0).getString("main"));
+
+                double temperature = dayForecast.getJSONObject("main").getDouble("temp");
+                tempNighttimeArray[nighttimeIterator].setText(String.valueOf(temperature));
+
+                String imageString = dayForecast.getJSONArray("weather").getJSONObject(0).getString("icon");
+                String imageUrl = "https://openweathermap.org/img/wn/" + imageString + "@2x.png";
+
+                Picasso.get().load(imageUrl).into(imgNighttimeArray[nighttimeIterator]);
+
                 nighttimeIterator++;
             }
         }

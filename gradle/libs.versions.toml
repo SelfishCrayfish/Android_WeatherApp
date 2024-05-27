@@ -1,4 +1,5 @@
 [versions]
+picasso = "2.8"
 retrofit = "2.10.0"
 agp = "8.3.0"
 junit = "4.13.2"
@@ -18,6 +19,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

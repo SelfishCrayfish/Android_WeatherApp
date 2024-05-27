@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="basic_text_size">20sp</dimen>
     <dimen name="forecast_big_text_size">15sp</dimen>
     <dimen name="forecast_mid_text_size">12sp</dimen>
 </resources>

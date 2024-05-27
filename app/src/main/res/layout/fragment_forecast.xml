@@ -43,12 +43,12 @@
             android:text="Day 1 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionDaytime1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Day 1 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
 
         <TextView
@@ -67,12 +67,12 @@
             android:text="Night 1 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionNighttime1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Night 1 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
     </LinearLayout>
 
@@ -120,17 +120,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionDaytime2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Day 2 desc"
-            android:textSize="@dimen/forecast_mid_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/guideline13"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+            android:src="@drawable/placeholder"
+            android:textSize="@dimen/forecast_mid_text_size" />
 
         <TextView
             android:id="@+id/nighttime2"
@@ -157,17 +153,13 @@
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionNighttime2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Night 2 desc"
-            android:textSize="@dimen/forecast_mid_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/guideline13"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+            android:src="@drawable/placeholder"
+            android:textSize="@dimen/forecast_mid_text_size" />
     </LinearLayout>
 
     <LinearLayout
@@ -208,12 +200,12 @@
             android:text="Day 3 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionDaytime3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Day 3 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
 
         <TextView
@@ -234,12 +226,12 @@
             android:textSize="@dimen/forecast_mid_text_size" />
 
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionNighttime3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Night 3 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
     </LinearLayout>
 
@@ -283,12 +275,12 @@
             android:text="Day 4 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionDaytime4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Day 4 des"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
 
         <TextView
@@ -307,12 +299,12 @@
             android:text="Night 4 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionNighttime4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Night 4 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
     </LinearLayout>
 
@@ -353,12 +345,12 @@
             android:text="Day 5 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionDaytime5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Day 5 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
 
         <TextView
@@ -377,12 +369,12 @@
             android:text="Night 5 temp"
             android:textSize="@dimen/forecast_mid_text_size" />
 
-        <TextView
+        <ImageView
             android:id="@+id/descriptionNighttime5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
-            android:text="Night 5 desc"
+            android:src="@drawable/placeholder"
             android:textSize="@dimen/forecast_mid_text_size" />
     </LinearLayout>
 
