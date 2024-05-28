@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isMetric = true;
     private Handler handler = new Handler();
     private Runnable runnable;
-    private static final long REFRESH_INTERVAL = 5 * 60 * 1000;
+    private static final long REFRESH_INTERVAL = 1 * 10 * 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         updateWeatherForCity(currentCity);
-
-
-        startAutoRefresh();
     }
 
     private void loadFragmentsForTablet() {
@@ -131,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         isMetric = !isMetric;
         updateWeatherForCity(currentCity);
         String unit = isMetric ? "metric" : "imperial";
-        Toast.makeText(this, "Units changed to " + unit, Toast.LENGTH_SHORT).show();
+        Utils.showToast(this, "Units changed to " + unit);
     }
 
     public void updateWeatherForCity(String cityName) {
@@ -170,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             String forecastWeatherString = getWeatherDataFromPreferences(cityName + "_forecastWeather");
 
             if (latestWeatherString != null && forecastWeatherString != null) {
-                Toast.makeText(this, "No internet connection. Using cached data.", Toast.LENGTH_SHORT).show();
+                Utils.showToast(this, "No internet connection. Using cached data.");
                 try {
                     JSONObject latestWeatherData = new JSONObject(latestWeatherString);
                     JSONObject forecastWeatherData = new JSONObject(forecastWeatherString);
@@ -187,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("updateWeatherForCity JSONException", e.toString());
                 }
             } else {
-                Toast.makeText(this, "No cached data available.", Toast.LENGTH_SHORT).show();
+                Utils.showToast(this, "No cached data available.");
             }
         }
     }
@@ -228,15 +225,22 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 updateWeatherForCity(currentCity);
                 handler.postDelayed(this, REFRESH_INTERVAL);
+                Utils.showToast(getApplicationContext(), "Autorefreshed");
             }
         };
         handler.postDelayed(runnable, REFRESH_INTERVAL);
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop(){
+        super.onStop();
         handler.removeCallbacks(runnable);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        startAutoRefresh();
     }
 
     private void loadPreferences() {

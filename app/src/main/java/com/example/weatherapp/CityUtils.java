@@ -11,6 +11,7 @@ import java.util.Set;
 public class CityUtils {
 
     private static final String PREFS_NAME = "favorite_cities";
+    private static final String WEATHER_PREFS = "weather_prefs";
     private static final String KEY_CITIES = "cities";
 
     public static List<String> getCities(Context context) {
@@ -31,5 +32,15 @@ public class CityUtils {
         Set<String> citySet = new HashSet<>(prefs.getStringSet(KEY_CITIES, new HashSet<>()));
         citySet.remove(city);
         prefs.edit().putStringSet(KEY_CITIES, citySet).apply();
+        removeWeatherDataForCity(context, city);
     }
+
+    private static void removeWeatherDataForCity(Context context, String city) {
+        SharedPreferences weatherPrefs = context.getSharedPreferences(WEATHER_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = weatherPrefs.edit();
+        editor.remove(city + "_latestWeather");
+        editor.remove(city + "_forecastWeather");
+        editor.apply();
+    }
+
 }

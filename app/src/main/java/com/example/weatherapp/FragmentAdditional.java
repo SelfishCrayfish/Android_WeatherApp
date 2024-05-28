@@ -58,7 +58,7 @@ public class FragmentAdditional extends Fragment implements WeatherCitiesAdapter
                 cities.add(city);
                 adapter.notifyItemInserted(cities.size() - 1);
             } else {
-                Toast.makeText(getContext(), "No internet connection or empty city name", Toast.LENGTH_SHORT).show();
+                Utils.showToast(getContext(), "No internet connection or empty city name");
             }
         });
 
