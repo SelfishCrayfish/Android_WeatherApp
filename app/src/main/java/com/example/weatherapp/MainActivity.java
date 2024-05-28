@@ -1,7 +1,7 @@
 package com.example.weatherapp;
 
 import android.content.Context;
-import android.content.res.Configuration;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -18,9 +18,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,8 +29,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
-
+    private static final String PREFS_NAME = "weather_prefs";
+    private static final String KEY_CURRENT_CITY = "currentCity";
+    private static final String KEY_IS_METRIC = "isMetric";
     private ViewPager2 viewPager;
     private WeatherPagerAdapter pagerAdapter;
     private String currentCity = "Lodz";
@@ -41,20 +43,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        viewPager = findViewById(R.id.viewPager);
-        pagerAdapter = new WeatherPagerAdapter(this);
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setOffscreenPageLimit(pagerAdapter.getItemCount());
 
-        try {
-            fetchAllWeatherData(currentCity, isMetric);
-        } catch (IOException | JSONException e) {
-            throw new RuntimeException(e);
+        loadPreferences();
+
+        setContentView(R.layout.activity_main);
+
+        if (findViewById(R.id.fragment_basic_container) != null) {
+            loadFragmentsForTablet();
+        } else {
+            viewPager = findViewById(R.id.viewPager);
+            pagerAdapter = new WeatherPagerAdapter(this);
+            viewPager.setAdapter(pagerAdapter);
+            viewPager.setOffscreenPageLimit(pagerAdapter.getItemCount());
         }
+
+        updateWeatherForCity(currentCity);
 
 
         startAutoRefresh();
+    }
+
+    private void loadFragmentsForTablet() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment basicFragment = new FragmentBasic();
+        Fragment forecastFragment = new FragmentForecast();
+        Fragment additionalFragment = new FragmentAdditional();
+
+        fragmentTransaction.replace(R.id.fragment_basic_container, basicFragment);
+        fragmentTransaction.replace(R.id.fragment_forecast_container, forecastFragment);
+        fragmentTransaction.replace(R.id.fragment_additional_container, additionalFragment);
+
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -69,11 +90,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_refresh) {
-            try {
-                fetchAllWeatherData(currentCity, isMetric);
-            } catch (IOException | JSONException e) {
-                throw new RuntimeException(e);
-            }
+            updateWeatherForCity(currentCity);
             return true;
         } else if (id == R.id.action_change_location) {
             showChangeLocationDialog();
@@ -98,16 +115,11 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(input);
 
         builder.setPositiveButton("Confirm", (dialog, which) -> {
-            try {
-                if(isNetworkAvailable()){
-                    currentCity = input.getText().toString();
-                    fetchAllWeatherData(currentCity, isMetric);
-                }
-                else{
-                    Utils.showToast(this, "Not connected to the internet");
-                }
-            } catch (IOException | JSONException e) {
-                throw new RuntimeException(e);
+            if (isNetworkAvailable()) {
+                currentCity = input.getText().toString();
+                updateWeatherForCity(currentCity);
+            } else {
+                Utils.showToast(this, "Not connected to the internet");
             }
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
@@ -117,25 +129,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void toggleUnits() throws JSONException, IOException {
         isMetric = !isMetric;
-        fetchAllWeatherData(currentCity, isMetric);
+        updateWeatherForCity(currentCity);
         String unit = isMetric ? "metric" : "imperial";
         Toast.makeText(this, "Units changed to " + unit, Toast.LENGTH_SHORT).show();
     }
 
-    private void fetchAllWeatherData(String cityName, boolean isMetric) throws IOException, JSONException {
+    public void updateWeatherForCity(String cityName) {
         if (isNetworkAvailable()) {
-            WeatherFetcher.fetchAllWeatherData(cityName, isMetric, new WeatherFetcher.WeatherDataCallback() {
+            WeatherFetcher.fetchAllWeatherData(cityName, new WeatherFetcher.WeatherDataCallback() {
                 @Override
                 public void onSuccess(JSONObject result) {
                     try {
-                        JSONObject latestWeatherData = result.getJSONObject("latestWeather");
-                        JSONObject forecastWeatherData = result.getJSONObject("forecastWeather");
+                        JSONObject latestWeatherData = result.getJSONObject(cityName + "_latestWeather");
+                        JSONObject forecastWeatherData = result.getJSONObject(cityName + "_forecastWeather");
 
-                        saveWeatherDataToPreferences("latestWeather", latestWeatherData.toString());
-                        saveWeatherDataToPreferences("forecastWeather", forecastWeatherData.toString());
+                        saveWeatherDataToPreferences(cityName + "_latestWeather", latestWeatherData.toString());
+                        saveWeatherDataToPreferences(cityName + "_forecastWeather", forecastWeatherData.toString());
 
                         new Handler().postDelayed(() -> {
                             try {
+                                currentCity = cityName;
                                 updateWeatherDataInFragments(latestWeatherData, forecastWeatherData);
                             } catch (JSONException | IOException e) {
                                 Log.d("fetchAllWeatherData JSONException", e.toString());
@@ -152,25 +165,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(this, "No internet connection. Using last updated data.", Toast.LENGTH_SHORT).show();
 
-            String latestWeatherString = getWeatherDataFromPreferences("latestWeather");
-            String forecastWeatherString = getWeatherDataFromPreferences("forecastWeather");
+            String latestWeatherString = getWeatherDataFromPreferences(cityName + "_latestWeather");
+            String forecastWeatherString = getWeatherDataFromPreferences(cityName + "_forecastWeather");
 
             if (latestWeatherString != null && forecastWeatherString != null) {
+                Toast.makeText(this, "No internet connection. Using cached data.", Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject latestWeatherData = new JSONObject(latestWeatherString);
                     JSONObject forecastWeatherData = new JSONObject(forecastWeatherString);
 
                     new Handler().postDelayed(() -> {
                         try {
+                            currentCity = cityName;
                             updateWeatherDataInFragments(latestWeatherData, forecastWeatherData);
                         } catch (JSONException | IOException e) {
-                            Log.d("fetchAllWeatherData JSONException", e.toString());
+                            Log.d("updateWeatherForCity JSONException", e.toString());
                         }
                     }, 50);
                 } catch (JSONException e) {
-                    Log.d("fetchAllWeatherData JSONException", e.toString());
+                    Log.d("updateWeatherForCity JSONException", e.toString());
                 }
             } else {
                 Toast.makeText(this, "No cached data available.", Toast.LENGTH_SHORT).show();
@@ -197,12 +211,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getWeatherDataFromPreferences(String key) {
-        return getSharedPreferences("weather_prefs", MODE_PRIVATE)
+        return getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
                 .getString(key, null);
     }
 
     private void saveWeatherDataToPreferences(String key, String jsonData) {
-        getSharedPreferences("weather_prefs", MODE_PRIVATE)
+        getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
                 .edit()
                 .putString(key, jsonData)
                 .apply();
@@ -212,11 +226,7 @@ public class MainActivity extends AppCompatActivity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                try {
-                    fetchAllWeatherData(currentCity, isMetric);
-                } catch (IOException | JSONException e) {
-                    e.printStackTrace();
-                }
+                updateWeatherForCity(currentCity);
                 handler.postDelayed(this, REFRESH_INTERVAL);
             }
         };
@@ -227,19 +237,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         handler.removeCallbacks(runnable);
-        Log.d("onDestroy", "I have been called");
+    }
+
+    private void loadPreferences() {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        currentCity = preferences.getString(KEY_CURRENT_CITY, currentCity);
+        isMetric = preferences.getBoolean(KEY_IS_METRIC, isMetric);
+    }
+
+    private void savePreferences() {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(KEY_CURRENT_CITY, currentCity);
+        editor.putBoolean(KEY_IS_METRIC, isMetric);
+        editor.apply();
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putBoolean("isMetric", isMetric);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        savePreferences();
     }
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        isMetric = savedInstanceState.getBoolean("isMetric");
-
+        loadPreferences();
+        updateWeatherForCity(currentCity);
     }
 }

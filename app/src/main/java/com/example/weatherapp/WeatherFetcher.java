@@ -14,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class WeatherFetcher {
-    public static void fetchAllWeatherData(final String cityName, final boolean isMetric, final WeatherDataCallback callback) {
+    public static void fetchAllWeatherData(final String cityName, final WeatherDataCallback callback) {
         new AsyncTask<Void, Void, JSONObject>() {
             @Override
             protected JSONObject doInBackground(Void... voids) {
@@ -46,8 +46,8 @@ public class WeatherFetcher {
                         JSONObject latestJson = new JSONObject(latestResult.toString());
 
                         JSONObject combinedJson = new JSONObject();
-                        combinedJson.put("latestWeather", latestJson);
-                        combinedJson.put("forecastWeather", forecastJson);
+                        combinedJson.put(cityName + "_latestWeather", latestJson);
+                        combinedJson.put(cityName + "_forecastWeather", forecastJson);
 
                         return combinedJson;
                     } finally {

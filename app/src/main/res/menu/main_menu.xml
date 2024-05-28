@@ -15,9 +15,4 @@
         android:title="Convert units"
         android:icon="@android:drawable/ic_menu_preferences"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_add_city"
-        android:title="Add city"
-        android:icon="@android:drawable/star_on"
-        app:showAsAction="never" />
 </menu>

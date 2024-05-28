@@ -2,5 +2,7 @@
 <resources>
     <dimen name="basic_text_size">25sp</dimen>
     <dimen name="forecast_big_text_size">30sp</dimen>
-    <dimen name="forecast_mid_text_size">25sp</dimen>
+    <dimen name="forecast_mid_text_size">27sp</dimen>
+    <dimen name="tablet_big_text_size">25sp</dimen>
+    <dimen name="tablet_mid_text_size">15sp</dimen>
 </resources>

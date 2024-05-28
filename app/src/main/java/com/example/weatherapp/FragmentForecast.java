@@ -1,17 +1,11 @@
 package com.example.weatherapp;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class FragmentForecast extends Fragment {
     private TextView[] dateArray;
@@ -72,7 +63,6 @@ public class FragmentForecast extends Fragment {
             imgDaytimeArray[i] = view.findViewById(descDayID);
             imgNighttimeArray[i] = view.findViewById(descNightID);
         }
-        Log.d("FragmentForecast", "I am fine haha");
         return view;
     }
 

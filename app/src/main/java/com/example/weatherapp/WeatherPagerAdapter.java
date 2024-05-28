@@ -9,6 +9,7 @@ public class WeatherPagerAdapter extends FragmentStateAdapter {
     private Fragment basic;
     private Fragment forecast;
     private Fragment additional;
+
     public WeatherPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
         basic = new FragmentBasic();

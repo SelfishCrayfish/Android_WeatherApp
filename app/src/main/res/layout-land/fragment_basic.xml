@@ -8,11 +8,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/translucent_background"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline19"
+        app:layout_constraintBottom_toTopOf="@+id/guideline20"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline14">
 
@@ -20,73 +20,73 @@
             android:id="@+id/cityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="City Name"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="4"/>
+            android:shadowRadius="4"
+            android:text="City Name"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/basic_text_size" />
 
         <TextView
             android:id="@+id/temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Temperature"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="4"/>
+            android:shadowRadius="4"
+            android:text="Temperature"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/basic_text_size" />
 
         <TextView
             android:id="@+id/pressure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pressure"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="4"/>
+            android:shadowRadius="4"
+            android:text="Pressure"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/basic_text_size" />
 
         <TextView
             android:id="@+id/windSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wind Speed"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="4"/>
+            android:shadowRadius="4"
+            android:text="Wind Speed"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/basic_text_size" />
 
         <TextView
             android:id="@+id/windDirection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wind Direction"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="4"/>
+            android:shadowRadius="4"
+            android:text="Wind Direction"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/basic_text_size" />
 
         <TextView
             android:id="@+id/humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Humidity"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
             android:shadowColor="#80000000"
             android:shadowDx="2"
             android:shadowDy="2"
-            android:shadowRadius="4"/>
+            android:shadowRadius="4"
+            android:text="Humidity"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/basic_text_size" />
 
         <TextView
             android:id="@+id/visibility"
@@ -94,10 +94,7 @@
             android:layout_height="wrap_content"
             android:text="Visibility"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/forecast_mid_text_size"
-            />
-
-
+            android:textSize="@dimen/basic_text_size" />
     </LinearLayout>
 
     <ImageView
@@ -106,16 +103,9 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintEnd_toStartOf="@+id/guideline19"
-        app:layout_constraintStart_toStartOf="@+id/guideline13"
-        app:layout_constraintTop_toTopOf="@+id/guideline25"
+        app:layout_constraintStart_toStartOf="@+id/guideline26"
+        app:layout_constraintTop_toTopOf="@+id/guideline14"
         app:srcCompat="@drawable/placeholder" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
@@ -146,10 +136,17 @@
         app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline25"
+        android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintGuide_percent="0.55" />
 
 
